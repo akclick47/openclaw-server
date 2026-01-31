@@ -1,4 +1,14 @@
 FROM node:22-alpine
-RUN npm install -g openclaw@latest
-EXPOSE 3000
+
+# Install required system dependencies
+RUN apk add --no-cache \
+    python3 \
+    make \
+    g++ \
+    libc6-compat
+# Install OpenClaw
+Run npm install -g openclaw@latest --unsafe-perm
+
+EXPOSE3000
+
 CMD ["openclaw", "gateway", "--port", "3000"]
