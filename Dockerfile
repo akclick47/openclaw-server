@@ -11,4 +11,4 @@ RUN apt-get update && apt-get install -y \
 RUN npm install -g openclaw@latest --unsafe-perm
 
 EXPOSE 3000
-CMD ["sh", "-lc", "openclaw gateway --bind lan --port ${PORT:-3000}"]
+CMD ["sh", "-lc", "openclaw gateway --dev --allow-configured --bind lan --auth token --token ${OPENCLAW_GATEWAY_TOKEN} --port ${PORT:-3000}"]
