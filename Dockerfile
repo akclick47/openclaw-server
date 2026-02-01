@@ -18,4 +18,4 @@ ENV npm_config_fund=false \
 RUN npm install -g openclaw@latest --unsafe-perm
 
 EXPOSE 3000
-CMD ["sh", "-lc", "openclaw gateway --dev --allow-unconfigured --bind lan --auth token --token ${OPENCLAW_GATEWAY_TOKEN} --port ${PORT:-3000}"]
+CMD ["sh", "-lc", "openclaw gateway --dev --allow-unconfigured --bind lan --auth token --port ${PORT:-3000}"]
