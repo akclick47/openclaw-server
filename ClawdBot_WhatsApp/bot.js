@@ -3,12 +3,20 @@ const qrcode = require('qrcode-terminal');
 
 // Initialize the WhatsApp Client
 const client = new Client({
-    authStrategy: new LocalAuth(), // This helps store the session for future use
+  authStrategy: new LocalAuth(),
+  puppeteer: {
+    headless: true,
+    args: [
+      '--no-sandbox',
+      '--disable-setuid-sandbox',
+      '--disable-dev-shm-usage'
+    ]
+  }
 });
 
 // Event when the bot is ready
 client.on('ready', () => {
-    console.log('Bot is ready!');
+    console.log('WhatsApp Bot is ready!');
 });
 
 // Event to handle the QR code for login
@@ -23,7 +31,7 @@ client.on('message', (message) => {
     // Log the message sender
     console.log('From:', message.from);
     console.log(message.body);  // Log incoming message body
-    
+
     // Example command: reply to the message with 'Hello!'
     if (message.body === '!hello') {
         console.log('Sending response...');
