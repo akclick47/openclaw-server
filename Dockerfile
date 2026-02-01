@@ -7,8 +7,8 @@ RUN apk add --no-cache \
     g++ \
     libc6-compat
 # Install OpenClaw
-Run npm install -g openclaw@latest --unsafe-perm
+RUN npm install -g openclaw@latest --unsafe-perm
 
-EXPOSE3000
+EXPOSE 3000
 
 CMD ["openclaw", "gateway", "--port", "3000"]
