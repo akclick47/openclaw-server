@@ -11,5 +11,4 @@ RUN npm install -g openclaw@latest --unsafe-perm
 
 ENV PORT=3000
 EXPOSE 3000
-
-CMD ["sh", "-lc", "openclaw gateway --bind lan --port ${PORT}"]
+CMD ["sh", "-lc", "openclaw gateway --bind lan --port ${PORT:-3000}"]
