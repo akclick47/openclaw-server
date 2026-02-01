@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node bot.js"
-  },
-  "keywords": [],
-  "author": "",
+    "start": "node ClawdBot_WhatsApp/bot.js"
+    },
+    "keywords": [],
+    "author": "",
   "license": "ISC",
   "dependencies": {
     "qrcode-terminal": "^0.12.0",
