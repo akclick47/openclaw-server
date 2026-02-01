@@ -1,14 +1,14 @@
-FROM node:20-alpine
+FROM node:22.12-bookworm-slim
 
-RUN apk add --no-cache \
+RUN apt-get update && apt-get install -y \
+    git \
     python3 \
     make \
     g++ \
-    libc6-compat \
-    git
+    cmake \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g openclaw@latest --unsafe-perm
 
-ENV PORT=3000
 EXPOSE 3000
 CMD ["sh", "-lc", "openclaw gateway --bind lan --port ${PORT:-3000}"]
